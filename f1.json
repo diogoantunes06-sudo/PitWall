@@ -1,0 +1,39 @@
+{
+  "season": 2026,
+  "last_updated": "2026-03-31",
+  "drivers": [
+    {"pos": 1, "name": "Max Verstappen", "team": "Red Bull Racing", "points": 77, "nationality": "NLD"},
+    {"pos": 2, "name": "Lando Norris", "team": "McLaren", "points": 64, "nationality": "GBR"},
+    {"pos": 3, "name": "Charles Leclerc", "team": "Ferrari", "points": 52, "nationality": "MON"},
+    {"pos": 4, "name": "Carlos Sainz", "team": "Ferrari", "points": 48, "nationality": "ESP"},
+    {"pos": 5, "name": "Lewis Hamilton", "team": "Mercedes", "points": 43, "nationality": "GBR"},
+    {"pos": 6, "name": "George Russell", "team": "Mercedes", "points": 37, "nationality": "GBR"},
+    {"pos": 7, "name": "Oscar Piastri", "team": "McLaren", "points": 32, "nationality": "AUS"},
+    {"pos": 8, "name": "Gabriel Bortoleto", "team": "Sauber", "points": 18, "nationality": "BRA"},
+    {"pos": 9, "name": "Fernando Alonso", "team": "Aston Martin", "points": 15, "nationality": "ESP"},
+    {"pos": 10, "name": "Lance Stroll", "team": "Aston Martin", "points": 9, "nationality": "CAN"}
+  ],
+  "constructors": [
+    {"pos": 1, "team": "Red Bull Racing", "points": 110},
+    {"pos": 2, "team": "Ferrari", "points": 100},
+    {"pos": 3, "team": "McLaren", "points": 96},
+    {"pos": 4, "team": "Mercedes", "points": 80},
+    {"pos": 5, "team": "Aston Martin", "points": 24}
+  ],
+  "calendar": [
+    {"round": 1, "name": "Grande Prêmio da Austrália", "circuit": "Albert Park", "date": "2026-03-16", "status": "done"},
+    {"round": 2, "name": "Grande Prêmio do Japão", "circuit": "Suzuka", "date": "2026-03-23", "status": "done"},
+    {"round": 3, "name": "Grande Prêmio do Bahrein", "circuit": "Sakhir", "date": "2026-04-06", "status": "upcoming"},
+    {"round": 4, "name": "Grande Prêmio da Arábia Saudita", "circuit": "Jeddah", "date": "2026-04-20", "status": "upcoming"},
+    {"round": 5, "name": "Grande Prêmio de Miami", "circuit": "Miami", "date": "2026-05-04", "status": "upcoming"},
+    {"round": 6, "name": "Grande Prêmio do Mônaco", "circuit": "Monte Carlo", "date": "2026-05-25", "status": "upcoming"},
+    {"round": 7, "name": "Grande Prêmio do Canadá", "circuit": "Montreal", "date": "2026-06-15", "status": "upcoming"},
+    {"round": 8, "name": "Grande Prêmio de Silverstone", "circuit": "Silverstone", "date": "2026-07-06", "status": "upcoming"},
+    {"round": 9, "name": "Grande Prêmio da Hungria", "circuit": "Hungaroring", "date": "2026-08-02", "status": "upcoming"},
+    {"round": 10, "name": "Grande Prêmio de Spa", "circuit": "Spa-Francorchamps", "date": "2026-08-30", "status": "upcoming"},
+    {"round": 11, "name": "Grande Prêmio da Itália", "circuit": "Monza", "date": "2026-09-07", "status": "upcoming"},
+    {"round": 12, "name": "Grande Prêmio do Brasil", "circuit": "Interlagos", "date": "2026-11-15", "status": "upcoming"},
+    {"round": 13, "name": "Grande Prêmio de Las Vegas", "circuit": "Las Vegas", "date": "2026-11-22", "status": "upcoming"},
+    {"round": 14, "name": "Grande Prêmio de Abu Dhabi", "circuit": "Yas Marina", "date": "2026-12-07", "status": "upcoming"}
+  ]
+}

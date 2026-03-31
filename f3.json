@@ -1,0 +1,29 @@
+{
+  "season": 2026,
+  "last_updated": "2026-03-31",
+  "note": "Dados atualizados manualmente após cada etapa",
+  "drivers": [
+    {"pos": 1, "name": "Martinius Stenshorne", "team": "Prema Racing", "points": 52, "nationality": "NOR"},
+    {"pos": 2, "name": "Nikita Bedrin", "team": "Jenzer", "points": 44, "nationality": "ITA"},
+    {"pos": 3, "name": "Christian Ho", "team": "Hitech", "points": 38, "nationality": "SGP"},
+    {"pos": 4, "name": "Dino Beganovic", "team": "Prema Racing", "points": 33, "nationality": "SWE"},
+    {"pos": 5, "name": "Alex Dunne", "team": "MP Motorsport", "points": 29, "nationality": "IRL"},
+    {"pos": 6, "name": "Gabriel Bortoleto Jr.", "team": "ART Grand Prix", "points": 24, "nationality": "BRA"},
+    {"pos": 7, "name": "Emanuele Olivieri", "team": "Trident", "points": 18, "nationality": "ITA"}
+  ],
+  "constructors": [
+    {"pos": 1, "team": "Prema Racing", "points": 85},
+    {"pos": 2, "team": "Hitech", "points": 67},
+    {"pos": 3, "team": "ART Grand Prix", "points": 58},
+    {"pos": 4, "team": "MP Motorsport", "points": 49},
+    {"pos": 5, "team": "Jenzer", "points": 44}
+  ],
+  "calendar": [
+    {"round": 1, "name": "Bahrein", "circuit": "Sakhir", "date": "2026-03-14", "status": "done"},
+    {"round": 2, "name": "Mônaco", "circuit": "Monte Carlo", "date": "2026-05-23", "status": "upcoming"},
+    {"round": 3, "name": "Silverstone", "circuit": "Silverstone", "date": "2026-07-04", "status": "upcoming"},
+    {"round": 4, "name": "Spa", "circuit": "Spa-Francorchamps", "date": "2026-08-28", "status": "upcoming"},
+    {"round": 5, "name": "Monza", "circuit": "Monza", "date": "2026-09-05", "status": "upcoming"},
+    {"round": 6, "name": "Abu Dhabi", "circuit": "Yas Marina", "date": "2026-12-05", "status": "upcoming"}
+  ]
+}

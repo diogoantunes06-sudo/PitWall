@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall — Automobilismo Mundial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --f1:    #e8002d;
+    --fe:    #00a0e6;
+    --f2:    #f39c12;
+    --f3:    #27ae60;
+    --f4br:  #009c3b;
+    --bg:    #f7f7f5;
+    --card:  #ffffff;
+    --text:  #1a1a1a;
+    --muted: #6b6b6b;
+    --border:#e2e2de;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .logo span { color: var(--f1); }
+
+  .last-update {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .tab {
+    padding: 14px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* ── MAIN ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── CATEGORY HEADER ── */
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.75rem;
+  }
+
+  .cat-badge {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: #fff;
+  }
+
+  .cat-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .cat-season {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .manual-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    background: #f0f0ec;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+  }
+
+  /* ── SUB-TABS ── */
+  .sub-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .sub-tab {
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .sub-tab:hover { color: var(--text); border-color: #bbb; }
+  .sub-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* ── STANDINGS TABLE ── */
+  .standings-table { width: 100%; border-collapse: collapse; }
+
+  .standings-table thead th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: #fafaf8;
+  }
+
+  .standings-table thead th.right { text-align: right; }
+
+  .standings-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+
+  .standings-table tbody tr:last-child { border-bottom: none; }
+  .standings-table tbody tr:hover { background: #fafaf8; }
+
+  .standings-table td {
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+
+  .standings-table td.right { text-align: right; }
+
+  .pos-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--muted);
+    width: 36px;
+  }
+
+  .pos-num.top3 { color: var(--text); }
+
+  .driver-name {
+    font-weight: 500;
+  }
+
+  .team-name {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .flag {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+
+  .pts {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .bar-wrap {
+    width: 100px;
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  /* ── CALENDAR ── */
+  .calendar-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .race-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .race-round {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    width: 32px;
+    flex-shrink: 0;
+  }
+
+  .race-info { flex: 1; }
+
+  .race-name {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .race-circuit {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .race-date {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .status-pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .status-done { background: #eef7ee; color: #27ae60; }
+  .status-upcoming { background: #f0f0ec; color: var(--muted); }
+  .status-next { color: #fff; }
+
+  /* ── GRID COLS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+    .tab { padding: 12px 14px; font-size: 13px; }
+    .bar-wrap { display: none; }
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  /* ── LOADING ── */
+  .loading {
+    padding: 3rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* ── NEXT RACE BANNER ── */
+  .next-race-banner {
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .next-race-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .next-race-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .next-race-date {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+
+  .countdown {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+    opacity: 0.75;
+    text-align: center;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Pit<span>Wall</span></div>
+  <div class="last-update" id="globalUpdate"></div>
+</header>
+
+<div class="tabs-bar" id="tabsBar">
+  <div class="tab active" data-tab="f1" data-accent="#e8002d">F1</div>
+  <div class="tab" data-tab="fe" data-accent="#00a0e6">Fórmula E</div>
+  <div class="tab" data-tab="f2" data-accent="#f39c12">F2</div>
+  <div class="tab" data-tab="f3" data-accent="#27ae60">F3</div>
+  <div class="tab" data-tab="f4br" data-accent="#009c3b">F4 Brasil</div>
+</div>
+
+<main>
+  <div id="f1" class="section active"></div>
+  <div id="fe" class="section"></div>
+  <div id="f2" class="section"></div>
+  <div id="f3" class="section"></div>
+  <div id="f4br" class="section"></div>
+</main>
+
+<script>
+const FLAGS = {
+  NLD:'🇳🇱', GBR:'🇬🇧', MON:'🇲🇨', ESP:'🇪🇸', AUS:'🇦🇺', BRA:'🇧🇷', CAN:'🇨🇦',
+  FRA:'🇫🇷', DEU:'🇩🇪', ITA:'🇮🇹', CHE:'🇨🇭', BEL:'🇧🇪', NZL:'🇳🇿', PRT:'🇵🇹',
+  USA:'🇺🇸', IND:'🇮🇳', NOR:'🇳🇴', SGP:'🇸🇬', SWE:'🇸🇪', IRL:'🇮🇪', BRB:'🇧🇧',
+  MEX:'🇲🇽', JPN:'🇯🇵', FIN:'🇫🇮', DNK:'🇩🇰', POL:'🇵🇱', HUN:'🇭🇺', GRC:'🇬🇷'
+};
+
+const CATS = {
+  f1:   { label:'F1', color:'#e8002d', file:'data/f1.json', manual:false, fullName:'Fórmula 1' },
+  fe:   { label:'FE', color:'#00a0e6', file:'data/fe.json', manual:true,  fullName:'Fórmula E' },
+  f2:   { label:'F2', color:'#f39c12', file:'data/f2.json', manual:true,  fullName:'Fórmula 2' },
+  f3:   { label:'F3', color:'#27ae60', file:'data/f3.json', manual:true,  fullName:'Fórmula 3' },
+  f4br: { label:'F4', color:'#009c3b', file:'data/f4brasil.json', manual:true, fullName:'F4 Brasil' }
+};
+
+const cache = {};
+
+function daysUntil(dateStr) {
+  const diff = new Date(dateStr) - new Date();
+  return Math.ceil(diff / 86400000);
+}
+
+function formatDate(dateStr) {
+  return new Date(dateStr + 'T12:00:00').toLocaleDateString('pt-BR', { day:'2-digit', month:'short', year:'numeric' });
+}
+
+function nextRace(calendar) {
+  return calendar.find(r => r.status === 'upcoming') || null;
+}
+
+function buildBanner(race, color) {
+  if (!race) return '';
+  const days = daysUntil(race.date);
+  const daysLabel = days <= 0 ? 'Hoje!' : days === 1 ? 'Amanhã' : `${days} dias`;
+  return `
+  <div class="next-race-banner" style="background:${color}">
+    <div>
+      <div class="next-race-label">Próxima corrida</div>
+      <div class="next-race-name">${race.name}</div>
+      <div class="next-race-date">${race.circuit} · ${formatDate(race.date)}</div>
+    </div>
+    <div style="text-align:center">
+      <div class="countdown">${daysLabel}</div>
+      <div class="countdown-label">para largada</div>
+    </div>
+  </div>`;
+}
+
+function buildDrivers(drivers, color) {
+  const max = drivers[0]?.points || 1;
+  return `
+  <div class="section-label">Pilotos</div>
+  <div class="card" style="margin-bottom:1.5rem">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th>Pos</th>
+          <th>Piloto</th>
+          <th class="right">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${drivers.map(d => `
+        <tr>
+          <td class="pos-num ${d.pos <= 3 ? 'top3' : ''}">${d.pos}</td>
+          <td>
+            <span class="flag">${FLAGS[d.nationality] || '🏁'}</span>
+            <span class="driver-name">${d.name}</span>
+            <div class="team-name">${d.team}</div>
+          </td>
+          <td class="right">
+            <span class="bar-wrap"><span class="bar-fill" style="width:${Math.round(d.points/max*100)}%;background:${color}"></span></span>
+            <span class="pts" style="color:${color}">${d.points}</span>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+
+function buildConstructors(ctors, color) {
+  const max = ctors[0]?.points || 1;
+  return `
+  <div class="section-label">Construtores</div>
+  <div class="card" style="margin-bottom:1.5rem">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th>Pos</th>
+          <th>Equipe</th>
+          <th class="right">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${ctors.map(c => `
+        <tr>
+          <td class="pos-num ${c.pos <= 3 ? 'top3' : ''}">${c.pos}</td>
+          <td class="driver-name">${c.team}</td>
+          <td class="right">
+            <span class="bar-wrap"><span class="bar-fill" style="width:${Math.round(c.points/max*100)}%;background:${color}"></span></span>
+            <span class="pts" style="color:${color}">${c.points}</span>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+
+function buildCalendar(calendar) {
+  const today = new Date().toISOString().split('T')[0];
+  return `
+  <div class="section-label">Calendário</div>
+  <div class="calendar-grid">
+    ${calendar.map(r => {
+      const isNext = r.status === 'upcoming' && calendar.filter(x => x.status === 'upcoming')[0]?.round === r.round;
+      return `
+      <div class="race-row" style="${isNext ? 'border-color:var(--accent);' : ''}">
+        <div class="race-round">R${r.round}</div>
+        <div class="race-info">
+          <div class="race-name">${r.name}</div>
+          <div class="race-circuit">${r.circuit}</div>
+        </div>
+        <div class="race-date">${formatDate(r.date)}</div>
+        <div class="status-pill ${r.status === 'done' ? 'status-done' : isNext ? 'status-next' : 'status-upcoming'}"
+             style="${isNext ? 'background:var(--accent)' : ''}">
+          ${r.status === 'done' ? 'Realizada' : isNext ? 'Próxima' : 'Aguardando'}
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+function buildSection(key, data) {
+  const cat = CATS[key];
+  const color = cat.color;
+  const next = nextRace(data.calendar || []);
+
+  const header = `
+  <div class="cat-header">
+    <span class="cat-badge" style="background:${color}">${cat.label}</span>
+    <div>
+      <div class="cat-title">${cat.fullName}</div>
+      <div class="cat-season">Temporada ${data.season_year || data.season}</div>
+    </div>
+    ${cat.manual ? '<span class="manual-note">✎ Atualização manual</span>' : '<span class="manual-note">⟳ Atualização automática</span>'}
+  </div>`;
+
+  const banner = buildBanner(next, color);
+
+  const subTabs = `
+  <div class="sub-tabs" data-parent="${key}">
+    <div class="sub-tab active" data-view="drivers">Pilotos</div>
+    <div class="sub-tab" data-view="constructors">Construtores</div>
+    <div class="sub-tab" data-view="calendar">Calendário</div>
+  </div>`;
+
+  const driversHTML = buildDrivers(data.drivers || [], color);
+  const ctorsHTML = buildConstructors(data.constructors || [], color);
+  const calHTML = buildCalendar(data.calendar || []);
+
+  document.getElementById(key).innerHTML = `
+    <style>
+      #${key} { --accent: ${color}; }
+    </style>
+    ${header}
+    ${banner}
+    ${subTabs}
+    <div id="${key}-view-drivers">${driversHTML}</div>
+    <div id="${key}-view-constructors" style="display:none">${ctorsHTML}</div>
+    <div id="${key}-view-calendar" style="display:none">${calHTML}</div>
+  `;
+
+  document.getElementById(key).querySelectorAll('.sub-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+      btn.closest('.sub-tabs').querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ['drivers','constructors','calendar'].forEach(v => {
+        const el = document.getElementById(`${key}-view-${v}`);
+        if (el) el.style.display = v === view ? '' : 'none';
+      });
+    });
+  });
+}
+
+async function loadSection(key) {
+  if (cache[key]) { buildSection(key, cache[key]); return; }
+  document.getElementById(key).innerHTML = '<div class="loading">Carregando dados...</div>';
+  try {
+    const r = await fetch(CATS[key].file + '?t=' + Date.now());
+    const data = await r.json();
+    cache[key] = data;
+    buildSection(key, data);
+    if (key === 'f1') {
+      document.getElementById('globalUpdate').textContent = 'Atualizado: ' + data.last_updated;
+    }
+  } catch(e) {
+    document.getElementById(key).innerHTML = `<div class="loading">Erro ao carregar dados de ${CATS[key].fullName}.</div>`;
+  }
+}
+
+// Tabs
+document.getElementById('tabsBar').addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  tab.classList.add('active');
+  const key = tab.dataset.tab;
+  document.getElementById(key).classList.add('active');
+  loadSection(key);
+});
+
+// Carga inicial
+loadSection('f1');
+</script>
+</body>
+</html>
