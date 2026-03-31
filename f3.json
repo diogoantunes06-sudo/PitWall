@@ -1,0 +1,47 @@
+{
+  "season": 2026,
+  "last_updated": "2026-03-31",
+  "note": "Dados após Melbourne (Etapa 1 de 9)",
+  "drivers": [
+    {"pos": 1,  "name": "Ugo Ugochukwu",      "team": "Campos Racing",         "points": 25, "nationality": "USA"},
+    {"pos": 2,  "name": "Bruno Del Pino",      "team": "Van Amersfoort Racing", "points": 18, "nationality": "ESP"},
+    {"pos": 3,  "name": "Freddie Slater",      "team": "Trident",               "points": 18, "nationality": "GBR"},
+    {"pos": 4,  "name": "Taito Kato",          "team": "ART Grand Prix",        "points": 16, "nationality": "JPN"},
+    {"pos": 5,  "name": "Enzo Deligny",        "team": "Van Amersfoort Racing", "points": 12, "nationality": "FRA"},
+    {"pos": 6,  "name": "Maciej Gladysz",      "team": "ART Grand Prix",        "points": 10, "nationality": "POL"},
+    {"pos": 7,  "name": "Brad Benavides",      "team": "Campos Racing",         "points": 8,  "nationality": "CHI"},
+    {"pos": 8,  "name": "Théophile Naël",      "team": "Campos Racing",         "points": 6,  "nationality": "FRA"},
+    {"pos": 9,  "name": "Noah Stromsted",      "team": "Trident",               "points": 4,  "nationality": "DNK"},
+    {"pos": 10, "name": "Brando Badoer",       "team": "Rodin Motorsport",      "points": 2,  "nationality": "ITA"},
+    {"pos": 11, "name": "Hiyu Yamakoshi",      "team": "Van Amersfoort Racing", "points": 1,  "nationality": "JPN"},
+    {"pos": 12, "name": "Christian Ho",        "team": "Rodin Motorsport",      "points": 0,  "nationality": "SGP"},
+    {"pos": 13, "name": "Pedro Clerot",        "team": "Rodin Motorsport",      "points": 0,  "nationality": "BRA"},
+    {"pos": 14, "name": "Mattia Colnaghi",     "team": "MP Motorsport",         "points": 0,  "nationality": "ITA"},
+    {"pos": 15, "name": "Tuukka Taponen",      "team": "MP Motorsport",         "points": 0,  "nationality": "FIN"},
+    {"pos": 16, "name": "Oliver Goethe Jr.",   "team": "Prema Racing",          "points": 0,  "nationality": "DEU"},
+    {"pos": 17, "name": "Fernando Barrichello","team": "AIX Racing",            "points": 0,  "nationality": "BRA"},
+    {"pos": 18, "name": "Yevan David",         "team": "AIX Racing",            "points": 0,  "nationality": "LKA"}
+  ],
+  "constructors": [
+    {"pos": 1, "team": "Van Amersfoort Racing","points": 30},
+    {"pos": 2, "team": "Campos Racing",        "points": 27},
+    {"pos": 3, "team": "ART Grand Prix",       "points": 26},
+    {"pos": 4, "team": "Trident",              "points": 22},
+    {"pos": 5, "team": "Rodin Motorsport",     "points": 2},
+    {"pos": 6, "team": "MP Motorsport",        "points": 0},
+    {"pos": 7, "team": "Prema Racing",         "points": 0},
+    {"pos": 8, "team": "AIX Racing",           "points": 0}
+  ],
+  "calendar": [
+    {"round": 1, "name": "Melbourne",     "circuit": "Albert Park",       "date": "2026-03-08", "status": "done"},
+    {"round": 2, "name": "Bahrein",       "circuit": "Sakhir",            "date": "2026-04-12", "status": "upcoming"},
+    {"round": 3, "name": "Mônaco",        "circuit": "Monte Carlo",       "date": "2026-06-06", "status": "upcoming"},
+    {"round": 4, "name": "Barcelona",     "circuit": "Barcelona",         "date": "2026-06-14", "status": "upcoming"},
+    {"round": 5, "name": "Spielberg",     "circuit": "Red Bull Ring",     "date": "2026-06-28", "status": "upcoming"},
+    {"round": 6, "name": "Silverstone",   "circuit": "Silverstone",       "date": "2026-07-05", "status": "upcoming"},
+    {"round": 7, "name": "Spa",           "circuit": "Spa-Francorchamps", "date": "2026-07-19", "status": "upcoming"},
+    {"round": 8, "name": "Hungria",       "circuit": "Hungaroring",       "date": "2026-07-26", "status": "upcoming"},
+    {"round": 9, "name": "Monza",         "circuit": "Monza",             "date": "2026-09-06", "status": "upcoming"},
+    {"round": 10,"name": "Madrid",        "circuit": "Madring",           "date": "2026-09-13", "status": "upcoming"}
+  ]
+}

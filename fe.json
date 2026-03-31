@@ -1,0 +1,53 @@
+{
+  "season": 12,
+  "season_year": "2025-26",
+  "last_updated": "2026-03-31",
+  "note": "Dados após o E-Prix de Madrid (Etapa 6)",
+  "drivers": [
+    {"pos": 1,  "name": "Pascal Wehrlein",        "team": "Porsche",         "points": 83, "nationality": "DEU"},
+    {"pos": 2,  "name": "Edoardo Mortara",         "team": "Mahindra",        "points": 72, "nationality": "CHE"},
+    {"pos": 3,  "name": "Mitch Evans",             "team": "Jaguar",          "points": 65, "nationality": "NZL"},
+    {"pos": 4,  "name": "Antonio Felix da Costa",  "team": "Jaguar",          "points": 64, "nationality": "PRT"},
+    {"pos": 5,  "name": "Nick Cassidy",            "team": "Citroën",         "points": 51, "nationality": "NZL"},
+    {"pos": 6,  "name": "Nico Müller",             "team": "Porsche",         "points": 50, "nationality": "CHE"},
+    {"pos": 7,  "name": "Oliver Rowland",          "team": "Nissan",          "points": 49, "nationality": "GBR"},
+    {"pos": 8,  "name": "Jake Dennis",             "team": "Andretti",        "points": 45, "nationality": "GBR"},
+    {"pos": 9,  "name": "Sebastian Buemi",         "team": "Envision",        "points": 45, "nationality": "CHE"},
+    {"pos": 10, "name": "Dan Ticktum",             "team": "Cupra Kiro",      "points": 22, "nationality": "GBR"},
+    {"pos": 11, "name": "Joel Eriksson",           "team": "Envision",        "points": 19, "nationality": "SWE"},
+    {"pos": 12, "name": "Pepe Marti",              "team": "Cupra Kiro",      "points": 19, "nationality": "ESP"},
+    {"pos": 13, "name": "Taylor Barnard",          "team": "DS Penske",       "points": 14, "nationality": "GBR"},
+    {"pos": 14, "name": "Nyck de Vries",           "team": "Mahindra",        "points": 12, "nationality": "NLD"},
+    {"pos": 15, "name": "Jean-Eric Vergne",        "team": "Citroën",         "points": 10, "nationality": "FRA"},
+    {"pos": 16, "name": "Maximilian Günther",      "team": "DS Penske",       "points": 8,  "nationality": "DEU"},
+    {"pos": 17, "name": "Norman Nato",             "team": "Nissan",          "points": 1,  "nationality": "FRA"},
+    {"pos": 18, "name": "Zane Maloney",            "team": "Lola Yamaha ABT", "points": 1,  "nationality": "BRB"},
+    {"pos": 19, "name": "Felipe Drugovich",        "team": "Andretti",        "points": 0,  "nationality": "BRA"},
+    {"pos": 20, "name": "Lucas di Grassi",         "team": "Lola Yamaha ABT", "points": 0,  "nationality": "BRA"}
+  ],
+  "constructors": [
+    {"pos": 1,  "team": "Porsche",         "points": 133},
+    {"pos": 2,  "team": "Jaguar",          "points": 129},
+    {"pos": 3,  "team": "Mahindra",        "points": 84},
+    {"pos": 4,  "team": "Envision",        "points": 64},
+    {"pos": 5,  "team": "Citroën",         "points": 61},
+    {"pos": 6,  "team": "Nissan",          "points": 50},
+    {"pos": 7,  "team": "Andretti",        "points": 45},
+    {"pos": 8,  "team": "Cupra Kiro",      "points": 41},
+    {"pos": 9,  "team": "DS Penske",       "points": 22},
+    {"pos": 10, "team": "Lola Yamaha ABT", "points": 1}
+  ],
+  "calendar": [
+    {"round": 1, "name": "E-Prix do México",       "circuit": "Mexico City",    "date": "2025-12-13", "status": "done"},
+    {"round": 2, "name": "E-Prix de Jeddah I",     "circuit": "Diriyah",        "date": "2026-02-07", "status": "done"},
+    {"round": 3, "name": "E-Prix de Jeddah II",    "circuit": "Diriyah",        "date": "2026-02-08", "status": "done"},
+    {"round": 4, "name": "E-Prix de Miami",        "circuit": "Miami",          "date": "2026-03-07", "status": "done"},
+    {"round": 5, "name": "E-Prix de Tokyo",        "circuit": "Tokyo",          "date": "2026-03-14", "status": "done"},
+    {"round": 6, "name": "E-Prix de Madrid",       "circuit": "Jarama",         "date": "2026-03-21", "status": "done"},
+    {"round": 7, "name": "E-Prix de São Paulo",    "circuit": "São Paulo",      "date": "2026-04-18", "status": "upcoming"},
+    {"round": 8, "name": "E-Prix de Monaco",       "circuit": "Monte Carlo",    "date": "2026-05-02", "status": "upcoming"},
+    {"round": 9, "name": "E-Prix de Berlim",       "circuit": "Berlim",         "date": "2026-06-06", "status": "upcoming"},
+    {"round": 10,"name": "E-Prix de Londres",      "circuit": "ExCeL London",   "date": "2026-07-25", "status": "upcoming"},
+    {"round": 11,"name": "E-Prix de Seul",         "circuit": "Seul",           "date": "2026-08-22", "status": "upcoming"}
+  ]
+}
